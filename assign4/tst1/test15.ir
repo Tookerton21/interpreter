@@ -1,0 +1,26 @@
+# IR1 Program
+
+foo (i)
+(x)
+{
+ return i
+}
+
+bar (i)
+(x)
+{
+ x = 2
+ return x
+}
+
+main ()
+(i, j)
+{
+ t1 = call foo(1)
+ i = t1
+ t2 = call bar(1)
+ j = t2
+ call printInt(i)
+ call printInt(j)
+ return 
+}

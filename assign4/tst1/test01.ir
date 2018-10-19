@@ -1,0 +1,10 @@
+# IR1 Program
+
+main ()
+{
+ call printInt(123)
+ call printStr("abc")
+ call printStr("second string")
+ call printInt(true)
+ return 
+}

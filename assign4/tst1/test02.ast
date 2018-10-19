@@ -1,0 +1,8 @@
+# AST1 Program
+  Func void main ()
+   VarDecl BoolType b true
+   VarDecl IntType i 2
+   VarDecl IntType j 6
+   Print b
+   Print i
+   Print j

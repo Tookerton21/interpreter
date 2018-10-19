@@ -1,0 +1,14 @@
+# AST1 Program
+  Func IntType go ()
+   If (Binop < 1 2)
+        Print 1
+   Else
+        {
+          If (Binop == (Binop * 3 4) 10)
+            Print 4
+     Else
+            Print 5
+    }
+   Return 6
+  Func void main ()
+   Print (Call go ())

@@ -1,0 +1,7 @@
+# AST1 Program
+  Func IntType go ()
+   Return (Call value (1 2 3 ))
+  Func IntType value ((Param IntType i) (Param IntType j) (Param IntType k) )
+   Return (Binop + (Binop + i j) k)
+  Func void main ()
+   Print (Call go ())

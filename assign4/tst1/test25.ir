@@ -1,0 +1,21 @@
+# IR1 Program
+
+go ()
+{
+ t1 = call value(1, 2, 3)
+ return t1
+}
+
+value (i, j, k)
+{
+ t2 = i + j
+ t3 = t2 + k
+ return t3
+}
+
+main ()
+{
+ t4 = call go()
+ call printInt(t4)
+ return 
+}

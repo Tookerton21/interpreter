@@ -1,0 +1,51 @@
+//-------------------------------------------------------------------------
+// Supporting software for CS421/422 Programming Language Implementation.
+// Copyright(c) Portland State University (J. Li, 2017).
+//-------------------------------------------------------------------------
+
+// IR1 Grammar
+//
+// (In the external form, each inst must be in a separate line)
+//
+
+Program -> {Func} 
+
+Func    -> <Global> VarList [VarList] "{" {Inst} "}"
+                                         // name, params, locals, body
+
+VarList -> "(" [<Id> {"," <Id>}] ")" 
+
+Inst 	-> Dest "=" Src BOP Src                  // Binop          
+        |  Dest "=" UOP Src                    	 // Unop     
+        |  Dest "=" Src                        	 // Move     
+        |  Dest "=" Addr                       	 // Load     
+        |  Addr "=" Src                        	 // Store    
+        |  [Dest "="] "call" <Global> ArgList  	 // Call
+        |  "return" [Src]                      	 // Return
+        |  "if" Src ROP Src "goto" <Label>     	 // CJump    
+        |  "goto" <Label>                      	 // Jump     
+        |  <Label> ":"                         	 // LabelDec 
+
+ArgList -> "(" [Src {"," Src}] ")"
+Addr  	-> [<IntLit>] "[" Src "]"
+Src   	-> <Id> | <Temp> | <IntLit> | <BoolLit> | <StrLit> 
+Dest  	-> <Id> | <Temp> 
+
+BOP 	-> AOP | ROP
+AOP 	-> "+" | "-" | "*" | "/" | "&&" | "||"
+ROP 	-> "==" | "!=" | "<" | "<=" | ">" | >="
+UOP 	-> "-" | "!"
+
+<Global>  = [A-Za-z][A-Za-z0-9]* 
+<Label>   = L[0-9]+
+<Id>      = [A-Za-z][A-Za-z0-9]* 
+<Temp>    = t[0-9]+
+<IntLit>  = [0-9]+
+<BoolLit> = true|false
+<StrLit>  = \"(~[\",\n])*\"  
+
+// Pre-Defined Funcitons
+
+malloc(size)    // memory allocation
+printInt(arg)   // print an integer (or a boolean as 0 or 1)
+printStr(arg)   // print a string literal (arg could be null)

@@ -1,0 +1,28 @@
+# IR1 Program
+
+go ()
+{
+ t1 = call value(true)
+ return t1
+}
+
+value (cond)
+(i, j, k)
+{
+ i = 5
+ j = 6
+ if cond == false goto L0
+ k = i
+ goto L1
+L0:
+ k = j
+L1:
+ return k
+}
+
+main ()
+{
+ t2 = call go()
+ call printInt(t2)
+ return 
+}

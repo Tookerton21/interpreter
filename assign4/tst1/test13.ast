@@ -1,0 +1,10 @@
+# AST1 Program
+  Func IntType go ()
+   VarDecl IntType i
+   VarDecl IntType j
+   Assign i 4
+   Assign j (Binop + i 2)
+   Return j
+  Func void main ()
+   VarDecl IntType r (Call go ())
+   Print r

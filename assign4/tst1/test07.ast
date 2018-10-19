@@ -1,0 +1,15 @@
+# AST1 Program
+  Func void main ()
+   Print (Call go ())
+  Func IntType go ()
+   VarDecl (ArrayType IntType) a
+   VarDecl (ArrayType IntType) b
+   Assign a (NewArray IntType 2)
+   Assign b (NewArray IntType 2)
+   Assign (ArrayElm a 0) 1
+   Assign (ArrayElm a 1) 2
+   Assign (ArrayElm b 0) 3
+   Assign (ArrayElm b 1) 4
+   Print (ArrayElm a 1)
+   Print (ArrayElm b 1)
+   Return (ArrayElm a 0)

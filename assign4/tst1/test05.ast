@@ -1,0 +1,14 @@
+# AST1 Program
+  Func void main ()
+   VarDecl BoolType a 
+   VarDecl BoolType b 
+   VarDecl BoolType c 
+   VarDecl IntType x 
+   Assign a true
+   Assign b (Unop ! a)
+   Assign c (Binop || (Binop && a b) a)
+   If c
+    Assign x 1
+   Else
+    Assign x 0
+   Print x

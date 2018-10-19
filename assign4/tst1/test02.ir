@@ -1,0 +1,13 @@
+# IR1 Program
+
+main ()
+(b, i, j)
+{
+ b = true
+ i = 2
+ j = 6
+ call printInt(b)
+ call printInt(i)
+ call printInt(j)
+ return 
+}

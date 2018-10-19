@@ -1,0 +1,21 @@
+# IR1 Program
+
+foo (i, j)
+{
+ t1 = i + j
+ return t1
+}
+
+main ()
+(b, i, j)
+{
+ b = true
+ t2 = call foo(1, 2)
+ i = t2
+ t3 = 2 * 3
+ j = t3
+ call printInt(b)
+ call printInt(i)
+ call printInt(j)
+ return 
+}

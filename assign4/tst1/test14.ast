@@ -1,0 +1,13 @@
+# AST1 Program
+  Func IntType foo ((Param IntType i) (Param IntType j) )
+   Return (Binop + i j)
+  Func void main ()
+   VarDecl BoolType b
+   VarDecl IntType i
+   VarDecl IntType j
+   Assign b true
+   Assign i (Call foo (1 2 ))
+   Assign j (Binop * 2 3)
+   Print b
+   Print i
+   Print j

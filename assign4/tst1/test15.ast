@@ -1,0 +1,14 @@
+# AST1 Program
+  Func IntType foo ((Param IntType i) )
+   VarDecl IntType x
+   Return i
+  Func IntType bar ((Param IntType i) )
+   VarDecl IntType x 2
+   Return x
+  Func void main ()
+   VarDecl IntType i
+   VarDecl IntType j
+   Assign i (Call foo (1 ))
+   Assign j (Call bar (1 ))
+   Print i
+   Print j

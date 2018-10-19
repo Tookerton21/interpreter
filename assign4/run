@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Script for running tst1/*.s programs
+#
+#  - it compares the program's output with the .out.ref file
+#
+#  Usage:
+#   ./run tst1/test01.s  -- test a single program 
+#   ./run tst1/test*.s   -- test all programs
+#
+#
+
+for i
+do
+        d=`dirname $i`
+        f=`basename $i .s`
+        echo -n "$d/$f: "
+        gcc -o $d/$f $d/$f.s
+        $d/$f > $d/$f.out
+        if [ -r $d/$f.out.ref ]; then
+          diff -w $d/$f.out $d/$f.out.ref > $d/$f.out.diff; 
+          if [ -s $d/$f.out.diff ]; then 
+            echo "differs from ref (see $f.out.diff)"; 
+          else
+            echo "matches ref"; 
+            rm $d/$f.out.diff;
+          fi
+	else
+            echo "no ref to compare"; 
+        fi
+	if [ -s $d/$f.err ]; then cat $d/$f.err; fi
+done
+exit 0
+

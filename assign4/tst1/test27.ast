@@ -1,0 +1,16 @@
+# AST1 Program
+  Func IntType go ()
+   Return (Call value (true ))
+  Func IntType value ((Param BoolType cond) )
+   VarDecl IntType i
+   VarDecl IntType j
+   VarDecl IntType k
+   Assign i 5
+   Assign j 6
+   If cond
+        Assign k i
+   Else
+        Assign k j
+   Return k
+  Func void main ()
+   Print (Call go ())

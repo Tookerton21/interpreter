@@ -1,0 +1,8 @@
+# AST1 Program
+  Func void main ()
+   VarDecl IntType i
+   VarDecl BoolType b
+   Assign i (Binop - (Binop + 2 (Binop * 2 4)) (Binop / 9 3))
+   Assign b (Binop || (Binop > 1 2) (Binop && (Binop < 3 4) (Unop ! false)))
+   Print i
+   Print b

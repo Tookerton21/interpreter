@@ -1,0 +1,28 @@
+# IR1 Program
+
+foo (i)
+{
+ t1 = i > 1
+ if t1 == false goto L0
+ t2 = call bar()
+ return t2
+ goto L1
+L0:
+ return 3
+L1:
+}
+
+bar ()
+{
+ t3 = call foo(1)
+ return t3
+}
+
+main ()
+(i)
+{
+ t4 = call foo(2)
+ i = t4
+ call printInt(i)
+ return 
+}

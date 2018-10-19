@@ -1,0 +1,12 @@
+# AST1 Program
+  Func IntType go ()
+   VarDecl BoolType b
+   VarDecl IntType i 0
+   VarDecl (ArrayType IntType) a (NewArray IntType 4)
+   Assign (ArrayElm a 1) 2
+   Assign b (Binop || (Binop || (Binop < 1 2) (Binop && (Binop > 3 4) (Binop == 5 (Binop + 6 (Binop * 7 8))))) (Unop ! true))
+   Assign i (Binop + (Binop + (Unop - (Unop - 3)) (Binop * (Binop / (Binop * 5 4) 2) (ArrayElm a 1))) (Binop * i 2))
+   Print b
+   Return i
+  Func void main ()
+   Print (Call go ())

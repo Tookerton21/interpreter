@@ -1,0 +1,15 @@
+# AST1 Program
+  Func IntType go ((Param IntType n) )
+   VarDecl IntType i
+   Assign i 0
+   If (Binop > n 0)
+        {
+          Print n
+          Assign i (Call back ((Binop - n 1) ))
+    }
+   Return i
+  Func IntType back ((Param IntType n) )
+   VarDecl IntType i (Call go (n ))
+   Return 0
+  Func void main ()
+   Print (Call go (5 ))
